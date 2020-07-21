@@ -24,8 +24,10 @@ class App extends React.Component {
     window.navigator.geolocation.getCurrentPosition(onSuccess, onFailure);
   }
 
-  // Required for every React component (class-base)
-  render() {
+  // Helper method
+  // Extract logic from render()
+  // Avoid using conditional inside render() method
+  renderContent() {
     if (this.state.errorMessage) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -35,6 +37,11 @@ class App extends React.Component {
     }
 
     return <Spinner message="Please accept location request!" />;
+  }
+
+  // Required for every React component (class-base)
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
