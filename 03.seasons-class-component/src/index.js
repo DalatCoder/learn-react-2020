@@ -6,7 +6,7 @@ class App extends React.Component {
     super(props);
 
     // Initialize state object
-    this.state = { lat: null };
+    this.state = { lat: null, errorMessage: "" };
 
     // Don't put async operation in render()
     window.navigator.geolocation.getCurrentPosition(
@@ -16,13 +16,23 @@ class App extends React.Component {
 
         this.setState({ lat: latitude });
       },
-      err => console.log(err)
+      err => {
+        this.setState({ errorMessage: err.message });
+      }
     );
   }
 
   // Required for every React component (class-base)
   render() {
-    return <div>Latitude: {this.state.lat}</div>;
+    if (this.state.errorMessage) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    if (this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
+
+    return <div>Loading...</div>;
   }
 }
 
