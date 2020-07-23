@@ -3,9 +3,10 @@ import React from 'react';
 
 const VideoItem = props => {
   const { title, thumbnails } = props.video.snippet;
+  const { onVideoSelect } = props;
 
   return (
-    <div className="video-item item">
+    <div className="video-item item" onClick={() => onVideoSelect(props.video)}>
       <img
         className="ui image"
         src={thumbnails.medium.url}

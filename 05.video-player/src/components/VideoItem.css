@@ -10,3 +10,7 @@
   max-width: 100%;
   border-radius: 5px;
 }
+
+.video-item.item .content .header {
+  font-family: 'Open Sans';
+}
