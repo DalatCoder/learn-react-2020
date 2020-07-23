@@ -14,7 +14,7 @@ const songsReducer = () => {
 // The first time selectedSongReducer gets invoked
 // The defalt value of selectedSong is null
 const selectedSongReducer = (selectedSong = null, action) => {
-  if (action.type === 'SELECTED_SONG') {
+  if (action.type === 'SONG_SELECTED') {
     return action.payload;
   }
 
