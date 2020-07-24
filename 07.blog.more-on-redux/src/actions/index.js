@@ -1,5 +1,9 @@
 import jsonPlacerholder from '../apis/jsonPlacerholder';
 
+export const fetchPostsAndUsers = () => async dispatch => {
+  await dispatch(fetchPosts());
+};
+
 export const fetchPosts = () => async dispatch => {
   const response = await jsonPlacerholder.get('/posts');
 
