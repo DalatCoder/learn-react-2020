@@ -1,7 +1,12 @@
+import _ from 'lodash';
 import jsonPlacerholder from '../apis/jsonPlacerholder';
 
-export const fetchPostsAndUsers = () => async dispatch => {
+export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   await dispatch(fetchPosts());
+
+  // Get an array of unique userId
+  const userIds = _.uniq(_.map(getState().posts, 'userId'));
+  userIds.forEach(id => dispatch(fetchUser(id)));
 };
 
 export const fetchPosts = () => async dispatch => {
