@@ -1,3 +1,26 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "My Stream",
+      "description": "My first stream",
+      "id": 1
+    },
+    {
+      "title": "Hieu's first Stream",
+      "description": "My first great stream!!!",
+      "userId": "108915169458540260187",
+      "id": 2
+    },
+    {
+      "title": "Programmatic Navigation",
+      "description": "Learn to make a custom navigation in React app - Edited",
+      "id": 3
+    },
+    {
+      "title": "Test stream",
+      "description": "This is a test stream - Edited",
+      "userId": "108915169458540260187",
+      "id": 4
+    }
+  ]
 }
