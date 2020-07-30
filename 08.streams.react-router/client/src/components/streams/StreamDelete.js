@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from '../Modal';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import history from '../../history';
 import { fetchStream, deleteStream } from '../../actions';
 
@@ -10,11 +11,22 @@ class StreamDelete extends React.Component {
     this.props.fetchStream(this.streamId);
   }
 
+  onDeleteStream() {
+    this.props.deleteStream(this.streamId);
+  }
+
   renderActions() {
     return (
       <React.Fragment>
-        <button className="ui button negative">Delete</button>
-        <button className="ui button">Cancel</button>
+        <button
+          onClick={() => this.onDeleteStream()}
+          className="ui button negative"
+        >
+          Delete
+        </button>
+        <Link to="/" className="ui button">
+          Cancel
+        </Link>
       </React.Fragment>
     );
   }
@@ -28,7 +40,6 @@ class StreamDelete extends React.Component {
   }
 
   render() {
-    console.log(this.props.stream);
     return (
       <Modal
         title="Delete Stream"
